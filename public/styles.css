@@ -62,6 +62,17 @@ a { color: inherit; }
   min-height: 44px; display: inline-flex; align-items: center;
 }
 .nav a:hover { color: var(--heading); background: #111; }
+/* Feedback button in the top bar */
+.nav a.nav-cta {
+  margin-left: 6px; gap: 7px; padding: 0 16px;
+  color: #fff; font-weight: 700;
+  background: var(--accent-soft);
+  border: 1.5px solid rgba(255, 76, 82, 0.85);
+  border-radius: 999px;
+  box-shadow: 0 0 14px rgba(255, 76, 82, 0.25);
+}
+.nav a.nav-cta:hover { background: rgba(255, 76, 82, 0.28); color: #fff; }
+.mail-ic { width: 17px; height: 17px; fill: currentColor; flex: none; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -88,21 +99,32 @@ a { color: inherit; }
 }
 
 /* ---------- Intro animation ----------
-   0.5s  line draws left -> right
+   0.5s  line draws left -> right, with the X big in the middle of the page
    2.0s  the X ring draws tip -> tip
-   3.3s  A, I, S fade in, then the tagline, then the rest of the page.
+   3.5s  the logo shrinks to its normal size and slides left (script in index.html;
+         the line is redrawn so its ends stay on screen)
+   4.6s  A, I, S, then O, p, t, i, c fade in from left to right
+   5.7s  the tagline, then the rest of the page.
    Scrolling early (html.skip-intro) brings the rest of the page in right away. */
 .reveal { stroke-dasharray: 1 1; stroke-dashoffset: 1; }
 .reveal-line { animation: draw 1.5s cubic-bezier(0.65, 0, 0.35, 1) 0.5s forwards; }
 .reveal-ring { animation: draw 1.3s cubic-bezier(0.45, 0, 0.3, 1) 2.0s forwards; }
-.logo-letters { opacity: 0; animation: fade 0.9s ease-out 3.3s forwards; }
-.hero-tagline { opacity: 0; animation: rise 0.9s ease-out 3.7s forwards; }
-.topbar, main > .section, .footer { opacity: 0; animation: fade 0.8s ease-out 4.4s forwards; }
+.logo-letter {
+  opacity: 0;
+  animation: letter-in 0.75s ease-out forwards;
+  animation-delay: calc(4.6s + var(--i) * 0.12s);
+}
+.hero-tagline { opacity: 0; animation: rise 0.9s ease-out 5.7s forwards; }
+.topbar, main > .section, .footer { opacity: 0; animation: fade 0.8s ease-out 6.3s forwards; }
 .skip-intro .topbar,
 .skip-intro main > .section,
 .skip-intro .footer { animation: fade-now 0.5s ease-out forwards; }
 
 @keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes letter-in {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: none; }
+}
 @keyframes fade { to { opacity: 1; } }
 @keyframes fade-now { from { opacity: 0; } to { opacity: 1; } }
 @keyframes rise {
@@ -514,6 +536,15 @@ section[id] { scroll-margin-top: 72px; }
   box-shadow: 0 0 24px rgba(255, 76, 82, 0.35);
 }
 .button:hover { filter: brightness(1.08); }
+.button .mail-ic { margin-right: 9px; }
+/* "Tell me what you think" next to the product status */
+.pill-link {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px;
+  border-radius: 999px; border: 1px solid #333;
+  color: var(--heading); font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.pill-link:hover { border-color: var(--accent); background: var(--accent-soft); }
 
 /* ---------- Footer ---------- */
 .footer {
@@ -528,7 +559,7 @@ section[id] { scroll-margin-top: 72px; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal { stroke-dashoffset: 0; animation: none; }
-  .logo-letters, .hero-tagline, .topbar, main > .section, .footer { opacity: 1; animation: none; }
+  .logo-letter, .hero-tagline, .topbar, main > .section, .footer { opacity: 1; animation: none; }
 }
 
 /* Phones: let the line run off both edges so the letters stay large */
@@ -536,6 +567,11 @@ section[id] { scroll-margin-top: 72px; }
   .hero { min-height: 46vh; padding: 32px 0 8px; }
   .hero-logo { width: 130vw; }
   .nav a { padding: 10px 8px; }
+  .nav a.nav-cta { padding: 0 12px; margin-left: 2px; }
+}
+/* Small phones: just the Feedback button in the top bar */
+@media (max-width: 480px) {
+  .nav a:not(.nav-cta) { display: none; }
   .brand { white-space: nowrap; gap: 8px; }
   .brand-mark { width: 28px; }
 }
