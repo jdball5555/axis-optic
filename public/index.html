@@ -315,7 +315,7 @@
     // position (not a delayed transition timer), so fast scrolling never skips them.
     (function () {
       var scenes = [].slice.call(document.querySelectorAll('.scene'));
-      var fades = [].slice.call(document.querySelectorAll('.scroll-fade, .reveal-up'));
+      var fades = [].slice.call(document.querySelectorAll('.scroll-fade'));
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
       function smooth(x) { x = clamp(x, 0, 1); return x * x * (3 - 2 * x); }
