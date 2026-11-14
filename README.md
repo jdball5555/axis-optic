@@ -63,7 +63,7 @@ This project was built with AI-assisted development. I designed the site and dir
 
 ## Status
 
-**Current version: 1.0.0.** See the [changelog](CHANGELOG.md) for version history.
+**Current version: 1.0.1.** See the [changelog](CHANGELOG.md) for version history.
 
 The site is live. Axis Optic: Team is currently at the concept stage. Team messaging and more products are planned.
 
