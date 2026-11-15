@@ -3,6 +3,24 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.1.0] — 2026-11-15
+
+### Added
+- Scorecards as the featured product, with its own blue and purple theme
+- Products section with cards for Scorecards and Axis Optic: Team
+- Three Scorecards scenes: live scoring, metrics, and inviting a friend with a link
+- Scorecards phone gallery: scoring a round and stats
+- Live Scorecards version badge, read from the app's own version file
+- Create an account and sign in buttons, plus a closing sign-up section
+- Scorecards and Team links in the top bar
+
+### Changed
+- Every scene now has its own layout and entrance
+- Phone gallery code supports more than one gallery on the page
+
+### Fixed
+- Missing icons in the Team desktop previews
+
 ## [1.0.1] — 2026-11-13
 
 ### Changed
@@ -42,6 +60,7 @@ Versions follow [Semantic Versioning](https://semver.org): **major** for redesig
 - First version of the site: hero, product tile, story and contact sections
 - Firebase Hosting config and one-click deploy script
 
+[1.1.0]: https://github.com/jdball5555/axis-optic-website/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/jdball5555/axis-optic-website/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/jdball5555/axis-optic-website/compare/v0.3.0...v1.0.0
 [0.3.0]: https://github.com/jdball5555/axis-optic-website/compare/v0.2.0...v0.3.0
