@@ -3,6 +3,26 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.2.0] — 2026-11-15
+
+### Added
+- App switcher for the products section: app icons with the chosen one in the middle, the others to the side, and an indicator line underneath
+- Scorecards scene for scoring and posting a game, with a friend's phone getting the notification and opening the scorecard from Mail
+- Scorecards scene for adding people, with the app's Add Member, player, invite and banner pop-ups
+- Scorecards phone gallery: metrics list and adding a guest
+
+### Changed
+- Only the chosen app's page shows below the switcher; the top-bar links pick the app
+- Scorecards screens rebuilt to match the real app, including the metrics page and score chart
+- Scorecards app icon cropped so the cards fill the rounded square
+
+### Fixed
+- The score chart's average label no longer sits on top of the line
+
+### Removed
+- The two product cards and the separate product intros
+- Styles for the old Scorecards screens
+
 ## [1.1.0] — 2026-11-15
 
 ### Added
