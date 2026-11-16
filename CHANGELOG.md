@@ -3,6 +3,11 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.2.4] — 2026-11-15
+
+### Fixed
+- The page now links the stylesheet by a hash of its contents, so the 1.2.3 styles reach every browser
+
 ## [1.2.3] — 2026-11-15
 
 ### Fixed
