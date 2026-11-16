@@ -19,7 +19,7 @@ A single-page site that introduces the company and walks visitors through each p
 ## Features
 
 - **Animated logo intro.** The wordmark's horizontal line is generated in JavaScript so its tips always end just inside the screen edges, and it is rebuilt on resize.
-- **App switcher.** The products section shows each app as its icon. The chosen app sits in the middle with the others to the side; clicking one (or using the arrow keys, swiping, or the top-bar links) slides it over and shows only that app's page below. Each page sets its own accent colors and backdrop.
+- **App switcher.** The products section shows each app as its icon, side by side, with its name and status. Clicking one (or using the arrow keys, swiping, or the top-bar links) lights it up and shows only that app's page below. Each page sets its own accent colors and backdrop.
 - **Live version badge.** The Scorecards version is read from the `version.json` file the Flutter web build publishes, so the site always shows the current release without being edited.
 - **Scroll-pinned scenes with varied layouts.** Each section stays pinned while you scroll through it. Each scene enters differently: rising, swinging in from the side, pulling back from a zoom, or pairing a desktop window with a phone. Scroll progress is mapped directly to CSS custom properties, so fast scrolling never skips a step.
 - **Live product previews.** Recreations of the Team schedule, dashboard and settings screens, and the Scorecards screens, play when they come into view. The Scorecards ones are rebuilt from the real app: scoring and posting a game while a friend's phone gets the notification and opens it from Mail, the metrics page and its score chart, and adding people with the app's own dialogs and invite link.
@@ -67,7 +67,7 @@ This project was built with AI-assisted development. I designed the site and dir
 
 ## Status
 
-**Current version: 1.2.0.** See the [changelog](CHANGELOG.md) for version history.
+**Current version: 1.2.1.** See the [changelog](CHANGELOG.md) for version history.
 
 The site is live. Scorecards is live at [scorecards.axisoptic.com](https://scorecards.axisoptic.com), and Axis Optic: Team is in development.
 

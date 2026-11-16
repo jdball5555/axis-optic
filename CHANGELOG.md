@@ -3,6 +3,17 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.2.1] — 2026-11-15
+
+### Changed
+- Products section is now a row of app icons with name and status, the chosen one lit and underlined
+- Scorecards screens restyled from the app's own code: its background, tinted sidebar and top bar, glass scorecard, metric tiles, mail and group cards
+- Scoring scene: Remove Round, Add Round and Finalize sit in the bottom bar, as in the app
+- Mail Inbox lists the newest mail at the bottom, as in the app
+
+### Fixed
+- Scorecards app icon now uses the app's own rounded-square icon file
+
 ## [1.2.0] — 2026-11-15
 
 ### Added
