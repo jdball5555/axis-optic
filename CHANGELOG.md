@@ -3,6 +3,11 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.2.5] — 2026-11-15
+
+### Changed
+- The Scorecards previews show the app's live version in their sidebars, read from the same version file as the badge
+
 ## [1.2.4] — 2026-11-15
 
 ### Fixed
