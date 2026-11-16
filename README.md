@@ -67,7 +67,7 @@ This project was built with AI-assisted development. I designed the site and dir
 
 ## Status
 
-**Current version: 1.2.2.** See the [changelog](CHANGELOG.md) for version history.
+**Current version: 1.2.3.** See the [changelog](CHANGELOG.md) for version history.
 
 The site is live. Scorecards is live at [scorecards.axisoptic.com](https://scorecards.axisoptic.com), and Axis Optic: Team is in development.
 

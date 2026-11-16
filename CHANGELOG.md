@@ -3,6 +3,13 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.2.3] — 2026-11-15
+
+### Fixed
+- Scoring scene laid out side by side so the whole window and phone fit on screen
+- Adding-people scene: the cursor now lands on Add Member and the other buttons
+- Browsers kept the old Scorecards icon; the icon and stylesheet links now change with each update
+
 ## [1.2.2] — 2026-11-15
 
 ### Fixed
