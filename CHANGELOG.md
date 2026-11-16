@@ -3,6 +3,11 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.2.2] — 2026-11-15
+
+### Fixed
+- Browsers kept the previous stylesheet after the 1.2.1 update, which broke the products section and Scorecards screens
+
 ## [1.2.1] — 2026-11-15
 
 ### Changed
