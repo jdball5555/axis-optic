@@ -1,6 +1,6 @@
 # Axis Optic — Company Website
 
-The marketing site for **Axis Optic** and its two products: **Scorecards**, a score-keeping app for card and board games, and **Axis Optic: Team**, a scheduling and shift-operations platform for quick-service restaurants.
+The marketing site for **Axis Optic** and its three products: **Scorecards**, a score-keeping app for card and board games; **Optimizer**, a personal command center for calendars, to-dos, trips, journal and finances; and **Axis Optic: Team**, a scheduling and shift-operations platform for quick-service restaurants.
 
 **Live site:** [axisoptic.com](https://axisoptic.com)
 
@@ -20,7 +20,7 @@ A single-page site that introduces the company and walks visitors through each p
 
 - **Animated logo intro.** The wordmark's horizontal line is generated in JavaScript so its tips always end just inside the screen edges, and it is rebuilt on resize.
 - **App switcher.** The products section shows each app as its icon, side by side, with its name and status. Clicking one (or using the arrow keys, swiping, or the top-bar links) lights it up and shows only that app's page below. Each page sets its own accent colors and backdrop.
-- **Live version badge.** The Scorecards version is read from the `version.json` file the Flutter web build publishes, so the site always shows the current release without being edited.
+- **Live version badges.** Each app's version is read from the `version.json` file its Flutter web build publishes, so the site always shows the current release without being edited. Each app's hosting has to allow `https://axisoptic.com` to read that file (an `Access-Control-Allow-Origin` header on `/version.json`).
 - **Scroll-pinned scenes with varied layouts.** Each section stays pinned while you scroll through it. Each scene enters differently: rising, swinging in from the side, pulling back from a zoom, or pairing a desktop window with a phone. Scroll progress is mapped directly to CSS custom properties, so fast scrolling never skips a step.
 - **Live product previews.** Recreations of the Team schedule, dashboard and settings screens, and the Scorecards screens, play when they come into view. The Scorecards ones are rebuilt from the real app: scoring and posting a game while a friend's phone gets the notification and opens it from Mail, the metrics page and its score chart, and adding people with the app's own dialogs and invite link.
 - **Phone app galleries.** Cross-fading phone screens for each product, with chapter tabs that fill as each preview plays. Supports clicking, arrow keys and swiping.
@@ -67,9 +67,9 @@ This project was built with AI-assisted development. I designed the site and dir
 
 ## Status
 
-**Current version: 1.2.5.** See the [changelog](CHANGELOG.md) for version history.
+**Current version: 1.3.0.** See the [changelog](CHANGELOG.md) for version history.
 
-The site is live. Scorecards is live at [scorecards.axisoptic.com](https://scorecards.axisoptic.com), and Axis Optic: Team is in development.
+The site is live. Scorecards is live at [scorecards.axisoptic.com](https://scorecards.axisoptic.com), Optimizer is in development, and Axis Optic: Team is a concept.
 
 ## License
 

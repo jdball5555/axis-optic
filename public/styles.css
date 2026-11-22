@@ -61,12 +61,12 @@ a { color: inherit; }
 .nav a.nav-cta {
   margin-left: 6px; gap: 7px; padding: 0 16px;
   color: #fff; font-weight: 700;
-  background: var(--accent-soft);
-  border: 1.5px solid rgba(255, 76, 82, 0.85);
+  background: rgba(44, 111, 224, 0.16);
+  border: 1.5px solid rgba(44, 111, 224, 0.9);
   border-radius: 999px;
-  box-shadow: 0 0 14px rgba(255, 76, 82, 0.25);
+  box-shadow: 0 0 14px rgba(44, 111, 224, 0.3);
 }
-.nav a.nav-cta:hover { background: rgba(255, 76, 82, 0.28); color: #fff; }
+.nav a.nav-cta:hover { background: rgba(44, 111, 224, 0.3); color: #fff; }
 .mail-ic { width: 17px; height: 17px; fill: currentColor; flex: none; }
 
 /* ---------- Hero ---------- */
@@ -355,7 +355,6 @@ section[id] { scroll-margin-top: 72px; }
   .ax-cell { font-size: 0; }
   .ax-hours span:nth-child(even) { display: none; }
 }
-.more { margin: 80px auto 0; text-align: center; color: #6f6f6f; font-size: 14px; }
 
 /* ---------- Contact ---------- */
 .contact { text-align: center; padding-bottom: 96px; }
@@ -381,8 +380,9 @@ section[id] { scroll-margin-top: 72px; }
   .nav a { padding: 10px 8px; }
   .nav a.nav-cta { padding: 0 12px; margin-left: 2px; }
 }
-/* Small phones: just the contact button in the top bar */
-@media (max-width: 480px) {
+/* Small phones: just the contact button in the top bar (560px leaves room
+   for three product links beside the name on anything wider) */
+@media (max-width: 560px) {
   .nav a:not(.nav-cta) { display: none; }
   .brand { white-space: nowrap; gap: 8px; }
   .brand-mark { width: 28px; }
@@ -406,7 +406,8 @@ main { overflow-x: clip; }
   text-wrap: balance;
 }
 .hero-title .hl {
-  background: linear-gradient(90deg, #ff4c52, #ff7a6b 45%, #7f9bff);
+  /* Blue-to-purple, matching the Scorecards theme and the LinkedIn banner */
+  background: linear-gradient(90deg, #2c6fe0, #3f58d8 40%, #5e43d2 72%, #7d4ae2);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
@@ -1263,7 +1264,6 @@ main { overflow-x: clip; }
 .pg-tab:not(.on) .pg-bar i { transition: transform 0.4s ease; }
 .pg-n { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; color: #4c4c51; font-variant-numeric: tabular-nums; transition: color 0.35s ease; }
 .pg-tab.on .pg-n { color: var(--accent); }
-.pgal .more { margin: 8vh 0 0; text-align: center; }
 
 @media (max-width: 860px) {
   .pg-slide { grid-template-columns: 1fr; }
@@ -1299,10 +1299,10 @@ main { overflow-x: clip; }
   box-shadow: 0 0 0 1px rgba(0, 162, 255, 0.1), 0 0 80px rgba(0, 162, 255, 0.3), 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 .p-sc .status { border-color: #1f2a44; }
-.p-sc .status-dot { background: #3ddc84; box-shadow: 0 0 10px #3ddc84; animation-name: pulse-live; }
+.p-sc .status-dot { background: #2c6fe0; box-shadow: 0 0 10px #2c6fe0; animation-name: pulse-live; }
 @keyframes pulse-live {
-  0%, 100% { opacity: 0.8; transform: scale(1); box-shadow: 0 0 8px #3ddc84; }
-  50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 14px #3ddc84; }
+  0%, 100% { opacity: 0.8; transform: scale(1); box-shadow: 0 0 8px #2c6fe0; }
+  50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 14px #2c6fe0; }
 }
 .intro-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 34px; }
 .intro-actions .status { margin-top: 0; }
@@ -1420,7 +1420,6 @@ main { overflow-x: clip; }
 .sc-cta h3 { margin: 0; color: #fff; font-size: clamp(28px, 3vw, 44px); font-weight: 700; letter-spacing: -0.03em; }
 .sc-cta > p { margin: 12px auto 0; max-width: 46ch; color: #b9bdcc; }
 .sc-cta .intro-actions { margin-top: 26px; }
-.p-sc .pgal .more { margin-top: 6vh; }
 .sc-ver { text-transform: none; }
 
 /* =====================================================================
@@ -1827,6 +1826,7 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
 }
 .lineup { --accent: #00a2ff; --lg: rgba(0, 110, 220, 0.16); }
 .lineup[data-on="team"] { --accent: #ff4c52; --lg: rgba(232, 48, 75, 0.14); }
+.lineup[data-on="optimizer"] { --accent: #f2f2f2; --lg: rgba(255, 255, 255, 0.08); }
 .lineup > .kick { position: relative; }
 .apps { position: relative; display: flex; justify-content: center; gap: clamp(28px, 6vw, 88px); margin-top: 5vh; }
 .app-ic { position: relative; display: flex; flex-direction: column; align-items: center; width: clamp(120px, 13vw, 168px); padding: 0 0 22px; border: 0; background: none; cursor: pointer; color: inherit; font: inherit; }
@@ -1835,10 +1835,12 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
 /* Team's icon is a plain square: give it the same rounded-square shape and margin as the Scorecards icon */
 .app-ic .aic.sq { padding: 9.8%; }
 .app-ic .aic.sq img { border-radius: 22.5%; }
+.app-ic .aic.ol img { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16); }
 .app-ic .nm { margin-top: 10px; font-size: 17px; font-weight: 600; color: #fff; opacity: 0.65; transition: opacity 0.3s ease; }
-.app-ic .st { display: inline-flex; align-items: center; gap: 7px; margin-top: 6px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #8c8c8c; }
+.app-ic .st { display: inline-flex; align-items: center; gap: 7px; margin-top: 6px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; color: #8c8c8c; }
 .app-ic .st i { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid currentColor; }
-.app-ic .st.live i { background: #3ddc84; border-color: #3ddc84; box-shadow: 0 0 8px #3ddc84; }
+.app-ic .st.live i { background: #2c6fe0; border-color: #2c6fe0; box-shadow: 0 0 8px #2c6fe0; }
+.app-ic .st.dev i { background: #7d4ae2; border-color: #7d4ae2; box-shadow: 0 0 8px #7d4ae2; }
 .app-ic::after { content: ''; position: absolute; left: 50%; bottom: 0; width: 44px; height: 3px; margin-left: -22px; border-radius: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.45s cubic-bezier(0.3, 1.2, 0.5, 1); }
 .app-ic:hover .aic { opacity: 0.85; transform: translateY(-4px); }
 .app-ic.on .aic { opacity: 1; filter: none; transform: translateY(-6px); }
@@ -1856,7 +1858,19 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
 .app-card .intro-sub { margin-top: 18px; }
 .app-card .intro-actions { margin-top: 28px; }
 .app-card .status { margin-top: 0; }
-.lu-sc .status-dot { background: #3ddc84; box-shadow: 0 0 10px #3ddc84; animation-name: pulse-live; }
+.lu-sc .status-dot { background: #2c6fe0; box-shadow: 0 0 10px #2c6fe0; animation-name: pulse-live; }
+.lu-opt .status-dot { background: #7d4ae2; box-shadow: 0 0 10px #7d4ae2; animation-name: pulse-dev; }
+@keyframes pulse-dev {
+  0%, 100% { opacity: 0.8; transform: scale(1); box-shadow: 0 0 8px #7d4ae2; }
+  50% { opacity: 1; transform: scale(1.3); box-shadow: 0 0 14px #7d4ae2; }
+}
+/* Three apps in the icon row: shrink them on phones so they fit side by side */
+@media (max-width: 520px) {
+  .apps { gap: 10px; }
+  .app-ic { width: min(108px, 28vw); }
+  .app-ic .nm { font-size: 15px; }
+  .app-ic .st { gap: 5px; font-size: 10px; letter-spacing: 0.04em; }
+}
 .product[hidden] { display: none; }
 
 /* Scenes on this page */
