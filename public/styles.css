@@ -1835,7 +1835,6 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
 /* Team's icon is a plain square: give it the same rounded-square shape and margin as the Scorecards icon */
 .app-ic .aic.sq { padding: 9.8%; }
 .app-ic .aic.sq img { border-radius: 22.5%; }
-.app-ic .aic.ol img { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16); }
 .app-ic .nm { margin-top: 10px; font-size: 17px; font-weight: 600; color: #fff; opacity: 0.65; transition: opacity 0.3s ease; }
 .app-ic .st { display: inline-flex; align-items: center; gap: 7px; margin-top: 6px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap; color: #8c8c8c; }
 .app-ic .st i { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid currentColor; }

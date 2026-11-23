@@ -3,6 +3,11 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.3.1] — 2026-11-22
+
+### Fixed
+- The Optimizer icon in the products row has no outline, matching Scorecards and Team
+
 ## [1.3.0] — 2026-11-22
 
 ### Added
@@ -128,6 +133,7 @@ Versions follow [Semantic Versioning](https://semver.org): **major** for redesig
 - First version of the site: hero, product tile, story and contact sections
 - Firebase Hosting config and one-click deploy script
 
+[1.3.1]: https://github.com/jdball5555/axis-optic-website/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/jdball5555/axis-optic-website/compare/v1.2.5...v1.3.0
 [1.1.0]: https://github.com/jdball5555/axis-optic-website/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/jdball5555/axis-optic-website/compare/v1.0.0...v1.0.1
