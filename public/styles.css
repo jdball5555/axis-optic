@@ -1034,10 +1034,17 @@ main { overflow-x: clip; }
   transition: none !important;
 }
 
+/* App icons rise and grow into place */
+.js .scroll-fade.sf-pop { transform: translateY(calc((1 - var(--sf-o, 0)) * 44px)) scale(calc(0.86 + 0.14 * var(--sf-o, 0))); }
+/* An app's title comes into focus, like the logo's letters */
+/* (sharp by the time it's 60% faded in) */
+.js .scroll-fade.sf-focus { filter: blur(calc(max(0, 1 - var(--sf-o, 0) / 0.6) * 10px)); }
+
 @media (prefers-reduced-motion: reduce) {
   .js .scroll-fade, .js .reveal-up, .scroll-fade, .reveal-up {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
   }
 }
 
@@ -1848,11 +1855,15 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
 .app-ic.on::after { transform: scaleX(1); }
 .app-ic:focus-visible { outline: none; }
 .app-ic:focus-visible .nm { text-decoration: underline; }
-.app-cards { position: relative; display: grid; width: min(900px, 92vw); margin-top: clamp(64px, 13vh, 150px); }
+.app-cards { position: relative; display: grid; width: min(900px, 92vw); margin-top: clamp(110px, 22vh, 240px); }
 .app-card { grid-area: 1 / 1; display: flex; flex-direction: column; align-items: center; opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity 0.4s ease, transform 0.5s ease, visibility 0s 0.5s; }
 .app-card.on { opacity: 1; visibility: visible; transform: none; transition: opacity 0.5s ease 0.1s, transform 0.6s ease 0.1s, visibility 0s; }
 .app-card .kick { margin-bottom: 14px; }
 .app-card h2 { margin: 0; }
+/* Picking an app: its title comes into focus, like the logo's letters */
+.lineup.picked .app-card.on .mega { animation: title-focus 0.9s cubic-bezier(0.2, 0.65, 0.2, 1) 0.05s backwards; }
+@keyframes title-focus { from { filter: blur(10px); } }
+@media (prefers-reduced-motion: reduce) { .lineup.picked .app-card.on .mega { animation: none; } }
 .app-card .mega { font-size: clamp(44px, 6vw, 96px); }
 .app-card .intro-sub { margin-top: 18px; }
 .app-card .intro-actions { margin-top: 28px; }
