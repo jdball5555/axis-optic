@@ -3,6 +3,11 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.4.2] — 2026-11-23
+
+### Changed
+- The Scorecards previews show a fixed v1.2.0 in their sidebars instead of the app's live version, so they only change when the previews are updated (the badge next to "Live" still shows the live version)
+
 ## [1.4.1] — 2026-11-22
 
 ### Changed
@@ -146,6 +151,7 @@ Versions follow [Semantic Versioning](https://semver.org): **major** for redesig
 - First version of the site: hero, product tile, story and contact sections
 - Firebase Hosting config and one-click deploy script
 
+[1.4.2]: https://github.com/jdball5555/axis-optic-website/compare/v1.4.1...v1.4.2
 [1.4.1]: https://github.com/jdball5555/axis-optic-website/compare/v1.4.0...v1.4.1
 [1.4.0]: https://github.com/jdball5555/axis-optic-website/compare/v1.3.1...v1.4.0
 [1.3.1]: https://github.com/jdball5555/axis-optic-website/compare/v1.3.0...v1.3.1
