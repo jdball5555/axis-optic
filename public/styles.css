@@ -2146,8 +2146,11 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
 .o-key .kv, .o-key.paste .kc, .o-key.paste span { display: none; }
 .o-key.paste .kv { display: grid; }
 .o-cur { position: absolute; left: 0; top: 0; z-index: 30; width: 26px; height: 26px; margin: -3px 0 0 -4px; pointer-events: none; filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5)); }
-.o-cur svg { width: 100%; height: 100%; display: block; }
-.o-cur.down { transform-origin: 4px 3px; scale: 0.86; }
+.o-cur svg { width: 100%; height: 100%; display: block; transform-origin: 22% 13%; transition: transform 0.08s ease; }
+/* The press shrinks the arrow toward its tip. It scales the arrow, not .o-cur:
+   .o-cur's transform is its position, and scaling it would scale that too
+   (the cursor jumped toward the corner on every click). */
+.o-cur.down svg { transform: scale(0.86); }
 
 /* Browser: two tabs, Canvas and Optimizer */
 .o-chrome { position: absolute; left: 0; right: 0; top: 0; height: 66px; background: #202124; border-bottom: 1px solid #000; }

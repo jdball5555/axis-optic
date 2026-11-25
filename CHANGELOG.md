@@ -3,6 +3,15 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.6.0] — 2026-11-25
+
+### Changed
+- The site now lives in its own Firebase project, Axis Optic (`axis-optic-ce4f2`), moved from `project-attendance-app`; `.firebaserc` points there, `firebase.json` uses the project's default site, and the deploy script says so
+- The README covers Optimizer: its scenes and assistant gallery, new screenshots, and the Projects row with all three apps; it describes the site as a project portfolio rather than a company website
+
+### Fixed
+- The cursor in the Optimizer animations (Canvas to-dos and the assistant) no longer jumps toward the corner of the window every time it clicks; the press now shrinks just the arrow, toward its tip
+
 ## [1.5.0] — 2026-11-25
 
 ### Added

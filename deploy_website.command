@@ -1,5 +1,5 @@
 #!/bin/zsh -l
-# Publishes this folder's site to axisoptic.com (Firebase Hosting, site "axis-optic").
+# Publishes this folder's site to axisoptic.com (Firebase Hosting in Axis Optic, axis-optic-ce4f2).
 cd "$(dirname "$0")"
 [ -f ~/.zshrc ] && source ~/.zshrc >/dev/null 2>&1
 export PATH="$PATH:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm-global/bin"
