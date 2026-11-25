@@ -3,6 +3,17 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.5.0] — 2026-11-25
+
+### Added
+- The Optimizer page: Canvas to-dos, with the app linking a Canvas calendar and every school's assignments landing in one list, then "Not available yet." for its concept features
+- The assistant ("Just ask."), first among the concept features: a gallery where it sums up your journal, schedules your week and plans a trip, with the trip's day tiles beside its itinerary
+- Net worth, Journal and Trips scenes, each entering its own way: net worth zooms, the journal flattens from a tilt, trips lands like a tossed card (just the computer, no phone)
+
+### Changed
+- The Canvas to-dos steps are numbered like the phone galleries' chapter tabs, with a line over each that fills while it plays
+- Scorecards has one "Sign in or sign up" button instead of separate create-account and sign-in buttons
+
 ## [1.4.3] — 2026-11-23
 
 ### Fixed
