@@ -20,11 +20,11 @@ A single-page site that walks visitors through each project in a series of full-
 
 ## Features
 
-- **3D hero intro.** A camera flies along a wall of app screens, turns, and settles on the Axis Optic logo as its line, X and letters draw in, over "Data brought into focus". It's all CSS 3D transforms on a 1584 × 396 banner scaled to the screen, plays once, and pauses while the tab is in the background.
+- **3D hero intro.** A camera flies along a wall of app screens, turns, and settles on the Axis Optic logo as its line, X and letters draw in, over "Data brought into focus". It's all CSS 3D transforms on a 1584 × 396 banner scaled to the screen (narrower screens show less of it side to side, so the logo stays big), plays once, and pauses while the tab is in the background. Each screen's layer is only as big as the detail it can show, so it stays light enough for phones.
 - **Docking top bar.** The top bar isn't there at the top of the page. Scrolling down, the hero's logo shrinks into the middle of the bar, then the links and Contact fade in. The motion uses scroll-driven animations (a `ScrollTimeline`), so it stays in step with the scroll however fast you go, with a script fallback for browsers without them.
 - **App switcher.** The Projects section shows each app as its icon, side by side, with its name and status. Clicking one (or using the arrow keys, swiping, or the top-bar links) lights it up and shows only that app's page below. Each page sets its own accent colors and backdrop.
 - **Live version badges.** Each app's version is read from the `version.json` file its Flutter web build publishes, so the site always shows the current release without being edited. Each app's hosting has to allow `https://axisoptic.com` to read that file (an `Access-Control-Allow-Origin` header on `/version.json`).
-- **Scroll-pinned scenes with varied layouts.** Each section stays pinned while you scroll through it. Each scene enters differently: rising, swinging in from the side, pulling back from a zoom, flattening from a 3D tilt, landing like a tossed card, or pairing a desktop window with a phone. Scroll progress is mapped directly to CSS custom properties, so fast scrolling never skips a step.
+- **Scroll-pinned scenes with varied layouts.** Each section stays pinned while you scroll through it. Each scene enters differently: rising, swinging in from the side, pulling back from a zoom, flattening from a 3D tilt, landing like a tossed card, or pairing a desktop window with a phone. Scroll progress is mapped directly to CSS custom properties, so fast scrolling never skips a step. Every scene fits on screen at any size: words beside the window on wide or landscape screens, stacked above it otherwise.
 - **Live app previews.** Recreations of the Team schedule, dashboard and settings screens, and the Scorecards screens, play when they come into view. The Scorecards ones are rebuilt from the real app: scoring and posting a game while a friend's phone gets the notification and opens it from Mail, turning on Split Screen Metrics from a Spades scorecard's settings so its metrics open beside it while scoring carries on, and adding people with the app's own dialogs and invite link.
 - **Optimizer page.** A Canvas to-dos scene shows a student copying their Canvas calendar feed into Optimizer, then every school's assignments landing in one list, with numbered steps that fill as it plays. "Not available yet." introduces the concept features: an assistant gallery (it sums up a journal, schedules a week and plans a trip, opening it with its itinerary and day tiles), then Net worth, Journal and Trips, shown on the computer with a phone beside it (Trips on the computer alone).
 - **Phone app galleries.** Cross-fading phone screens for each app (desktop windows for Optimizer's assistant), with chapter tabs that fill as each preview plays. Supports clicking, arrow keys and swiping.
@@ -74,7 +74,7 @@ This project was built with AI-assisted development. I designed the site and dir
 
 ## Status
 
-**Current version: 1.7.1** (also shown in the site's footer). See the [changelog](CHANGELOG.md) for version history.
+**Current version: 1.7.2** (also shown in the site's footer). See the [changelog](CHANGELOG.md) for version history.
 
 The site is live. Scorecards is live at [scorecards.axisoptic.com](https://scorecards.axisoptic.com), Optimizer is in development, and Axis Optic: Team is a concept.
 

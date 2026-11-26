@@ -89,6 +89,7 @@ html:not(.js) .topbar .nav, html:not(.js) .topbar .nav-cta { visibility: visible
    script under the hero). Everything is laid out on a 1584 x 396 banner,
    scaled to the hero's width and centered in it. */
 .hero { position: relative; height: max(25vw, min(64vh, 620px)); overflow: hidden; background: #000; }
+@media (max-width: 700px) { .hero { height: 72vw; } }
 .hx-scaler { position: absolute; left: 0; top: 0; width: 1584px; height: 396px; transform-origin: 0 0; }
 .hx-stage { position: absolute; inset: 0; perspective: 1650px; perspective-origin: 792px 128px; overflow: visible; }
 .hx-bgplate, .hx-final {
@@ -98,9 +99,10 @@ html:not(.js) .topbar .nav, html:not(.js) .topbar .nav-cta { visibility: visible
 }
 .hx-world { will-change: transform; position: absolute; left: 0; top: 0; width: 1584px; height: 396px; transform-style: preserve-3d; transform-origin: 792px 128px 1650px; }
 .hx-wall { position: absolute; left: 792px; top: 128px; width: 0; height: 0; transform-style: preserve-3d; transform-origin: 0 0; transform: rotateY(-21.0018deg); }
-.hx-panel, .hx-refl { position: absolute; left: 0; top: 0; width: 1500px; height: 818px; opacity: 0; border-radius: 24px; transform-origin: 0 0; backface-visibility: hidden; }
-.hx-panel { box-shadow: 0 36px 108px rgba(0, 0, 0, 0.55); }
-.hx-panel img, .hx-refl img { display: block; width: 100%; height: 100%; border-radius: 24px; }
+.hx-panel, .hx-refl { --q: var(--hxq, 1); position: absolute; left: 0; top: 0; width: calc(1500px * var(--q)); height: calc(818px * var(--q)); opacity: 0; border-radius: calc(24px * var(--q)); transform-origin: 0 0; backface-visibility: hidden; }
+.hx-refl { --q: var(--hxqr, 1); }
+.hx-panel { box-shadow: 0 calc(36px * var(--q)) calc(108px * var(--q)) rgba(0, 0, 0, 0.55); }
+.hx-panel img, .hx-refl img { display: block; width: 100%; height: 100%; border-radius: calc(24px * var(--q)); }
 .hx-edgefade { position: absolute; left: 0; right: 0; bottom: 0; height: 16%; background: linear-gradient(to top, #000 8%, transparent); pointer-events: none; }
 .hx-blackout { position: absolute; inset: 0; background: #000; pointer-events: none; }
 .hx-logo { position: absolute; left: 0; top: 0; width: 838.3px; overflow: visible; transform-origin: 0 0; }
@@ -371,6 +373,10 @@ section[id] { scroll-margin-top: 72px; }
 }
 @media (max-width: 700px) {
   .nav-cta { padding: 0 12px; }
+}
+/* Very narrow phones: just the envelope, so it clears the logo */
+@media (max-width: 440px) {
+  .nav-cta { width: 40px; padding: 0; justify-content: center; font-size: 0; gap: 0; }
 }
 
 /* Previews animate inside fixed frames; never let the browser anchor the
@@ -1094,12 +1100,11 @@ main { overflow-x: clip; }
 
 /* Phones: the shots stay laid out like the desktop app (they're pictures). */
 @media (max-width: 700px) {
-  /* The shot runs off the right edge so it stays big enough to read. */
-  .scene { height: 200vh; --mw: 150vw; }
+  /* The whole window fits on screen. */
+  .scene { height: 200vh; --mw: calc(100vw - 40px); }
   .scene-pin { align-items: flex-start; padding: 76px 20px 6vh; }
   .scene-copy { text-align: left; }
   .scene-copy p:last-child { margin-left: 0; }
-  .scene-tilt { transform-origin: 0 100%; }
   .stats { grid-template-columns: 1fr; padding: 12vh 24px; gap: 48px; }
   .scene .mock.ax, .scene .mock.ax.stm { aspect-ratio: 1200 / 640; }
   .scene .ax-win, .scene .stm .ax-win { width: 1200px; height: 640px; }
@@ -1299,17 +1304,6 @@ main { overflow-x: clip; }
    enters differently (desktop only; phones keep the simple rise).
    ===================================================================== */
 @media (min-width: 701px) {
-  /* Split: words on the left, the window swings in from the side. */
-  .scene.l-split { --mw: min(820px, 56vw, calc((100vh - 180px) * 1.875)); }
-  .l-split .scene-pin { flex-direction: row; gap: clamp(32px, 5vw, 88px); padding: 84px clamp(24px, 5vw, 80px) 4vh; }
-  .l-split .scene-copy { order: 0; flex: 0 1 380px; text-align: left; transform: translateX(calc((1 - var(--c, 0)) * -28px)); }
-  .l-split .scene-copy h2 { font-size: clamp(34px, 3.6vw, 58px); }
-  .l-split .scene-copy p:last-child { margin-left: 0; }
-  .l-split .scene-stage { perspective-origin: 0% 50%; }
-  .l-split .scene-tilt {
-    transform-origin: 0% 50%;
-    transform: translateX(calc((1 - var(--t, 0)) * 14vw)) rotateY(calc((1 - var(--t, 0)) * -30deg)) scale(calc(0.9 + var(--t, 0) * 0.1));
-  }
 
   /* Zoom: the window starts close and tipped toward you, then pulls back.
      The words sit underneath in two columns. */
@@ -1342,6 +1336,30 @@ main { overflow-x: clip; }
       scale(calc(0.84 + var(--t, 0) * 0.16));
   }
 
+
+  /* Duo: the desktop window plus a friend's phone rising beside it. */
+  .scene.l-duo { --mw: min(1000px, 74vw, calc((100vh - 360px) * 1.875)); }
+  .l-duo .scene-copy { width: calc(var(--mw) * 1.12); max-width: none; text-align: left; padding-right: 26%; }
+  .l-duo .scene-copy p:last-child { margin-left: 0; }
+  .l-duo .scene-stage { margin-right: 12%; }
+  .l-duo .scene-tilt { transform: translateX(calc((1 - var(--t, 0)) * -8vw)) scale(calc(0.94 + var(--t, 0) * 0.06)); }
+}
+/* Words beside the window only on wide (1000px up) or landscape screens:
+   on narrower, taller ones it would squeeze both, so they stack like the
+   other layouts. */
+@media (min-width: 1000px), (min-width: 701px) and (min-aspect-ratio: 5/4) {
+  /* Split: words on the left, the window swings in from the side. */
+  .scene.l-split { --mw: min(820px, 56vw, calc((100vh - 180px) * 1.875)); }
+  .l-split .scene-pin { flex-direction: row; gap: clamp(32px, 5vw, 88px); padding: 84px clamp(24px, 5vw, 80px) 4vh; }
+  .l-split .scene-copy { order: 0; flex: 0 1 380px; text-align: left; transform: translateX(calc((1 - var(--c, 0)) * -28px)); }
+  .l-split .scene-copy h2 { font-size: clamp(34px, 3.6vw, 58px); }
+  .l-split .scene-copy p:last-child { margin-left: 0; }
+  .l-split .scene-stage { perspective-origin: 0% 50%; }
+  .l-split .scene-tilt {
+    transform-origin: 0% 50%;
+    transform: translateX(calc((1 - var(--t, 0)) * 14vw)) rotateY(calc((1 - var(--t, 0)) * -30deg)) scale(calc(0.9 + var(--t, 0) * 0.1));
+  }
+
   /* Iso: a tilted 3D view that flattens; words on the right. */
   .scene.l-iso { --mw: min(800px, 55vw, calc((100vh - 180px) * 1.875)); }
   .l-iso .scene-pin { flex-direction: row-reverse; gap: clamp(32px, 5vw, 88px); padding: 84px clamp(24px, 5vw, 80px) 4vh; }
@@ -1353,13 +1371,6 @@ main { overflow-x: clip; }
     transform-origin: 50% 60%;
     transform: translateY(calc((1 - var(--t, 0)) * 6vh)) rotateX(calc((1 - var(--t, 0)) * 52deg)) rotateZ(calc((1 - var(--t, 0)) * 26deg)) scale(calc(0.8 + var(--t, 0) * 0.2));
   }
-
-  /* Duo: the desktop window plus a friend's phone rising beside it. */
-  .scene.l-duo { --mw: min(1000px, 74vw, calc((100vh - 360px) * 1.875)); }
-  .l-duo .scene-copy { width: calc(var(--mw) * 1.12); max-width: none; text-align: left; padding-right: 26%; }
-  .l-duo .scene-copy p:last-child { margin-left: 0; }
-  .l-duo .scene-stage { margin-right: 12%; }
-  .l-duo .scene-tilt { transform: translateX(calc((1 - var(--t, 0)) * -8vw)) scale(calc(0.94 + var(--t, 0) * 0.06)); }
 }
 .scd-phone {
   position: absolute; z-index: 3; right: -16%; bottom: -10%; width: 25%;
@@ -1370,7 +1381,7 @@ main { overflow-x: clip; }
 }
 .scd-phone .ph-screen { border-radius: 28px; }
 @media (max-width: 700px) {
-  .scd-phone { right: 2%; bottom: -24%; width: 30%; border-radius: 22px; padding: 4px; }
+  .scd-phone { border-radius: 22px; padding: 4px; }
   .scd-phone .ph-screen { border-radius: 18px; }
 }
 
@@ -1852,6 +1863,7 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
    only its page shows below.
    ===================================================================== */
 .lineup { position: relative; display: flex; flex-direction: column; align-items: center; padding: 18vh 0 10vh; overflow: hidden; text-align: center; }
+@media (max-width: 700px) { .lineup { padding-top: 3vh; } }
 .lineup::before {
   content: ''; position: absolute; left: 50%; top: 40%; width: min(1000px, 130vw); height: 640px; transform: translate(-50%, -50%);
   pointer-events: none; background: radial-gradient(closest-side, var(--lg), transparent); transition: background 0.8s ease;
@@ -1911,19 +1923,35 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
 /* Scenes on this page */
 .s-post .scd-phone { right: -15%; bottom: -1%; width: 26%; }
 .s-post .scd-phone .ph-screen { border-radius: 30px; }
-@media (min-width: 701px) {
-  /* Words on the left, window and phone on the right, so the whole scene fits on screen */
-  .scene.l-duo.s-post { height: 300vh; --mw: min(900px, calc(100vw - 380px - 22vw), calc((100vh - 200px) * 1.875)); }
+@media (min-width: 701px) { .scene.l-duo.s-post { height: 300vh; } }
+/* Wide screens: words on the left, window and phone on the right, so the
+   whole scene fits on screen. Narrower ones stack them, so the window
+   doesn't get squeezed. */
+@media (min-width: 1200px) {
+  .scene.l-duo.s-post { --mw: min(900px, calc(100vw - 380px - 22vw), calc((100vh - 200px) * 1.875)); }
   .l-duo.s-post .scene-pin { flex-direction: row; gap: clamp(28px, 4vw, 64px); padding: 84px clamp(20px, 4vw, 64px) 5vh; }
   .l-duo.s-post .scene-copy { order: 0; flex: 0 1 340px; width: auto; padding-right: 0; }
   .l-duo.s-post .scene-copy h2 { font-size: clamp(34px, 3.6vw, 56px); }
   .l-duo.s-post .scene-stage { margin-right: 15%; }
+}
+@media (min-width: 1000px), (min-width: 701px) and (min-aspect-ratio: 5/4) {
   .scene.l-split.s-people { --mw: min(980px, 63vw, calc((100vh - 160px) * 1.875)); }
   .l-split.s-people .scene-copy { flex-basis: 340px; }
 }
+/* Phones: the phone sits at the window's bottom right corner, as on
+   desktop (the window leaves room for it). On a standard phone screen it
+   would be too small to make out, so it's left out and the window gets the
+   whole width. */
 @media (max-width: 700px) {
-  .s-post .scd-phone { right: auto; left: 31%; bottom: -14%; width: 26%; padding: 4px; border-radius: 22px; }
-  .s-post .scd-phone .ph-screen { border-radius: 18px; }
+  .scene.s-post { --mw: calc((100vw - 40px) / 1.14); }
+  .s-post .scd-phone { right: -14%; bottom: -10%; width: 24%; }
+}
+@media (max-width: 520px) {
+  .scene.s-post { --mw: calc(100vw - 40px); }
+  .s-post .scd-phone { display: none; }
+  .o-duo:not(.solo) { aspect-ratio: 1200 / 640; }
+  .o-duo:not(.solo) .o-dkm { position: relative; top: 0; width: 100%; }
+  .o-duo:not(.solo) .phone { display: none; }
 }
 @keyframes q3blink { 50% { opacity: 0; } }
 
@@ -2250,13 +2278,19 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
 .o-steps li > p:last-child { margin: 10px 0 0 !important; padding-left: calc(2ch + 0.36em + 14px); max-width: 46ch; color: #6b6b70; font-size: 15px !important; line-height: 1.55; text-align: left; transition: color 0.35s ease; }
 .o-steps li.on > p:last-child { color: #a8a8ad; }
 .o-copy h2 { text-align: left; }
-@media (min-width: 701px) {
+@media (min-width: 1000px), (min-width: 701px) and (min-aspect-ratio: 5/4) {
   .scene.l-split.o-scene { --mw: min(900px, 58vw, calc((100vh - 160px) * 1.875)); }
   .l-split.o-scene .scene-copy { flex-basis: 380px; }
 }
 @media (max-width: 700px) {
   .o-steps li:not(.on) > p:last-child { display: none; }
   .o-steps li { margin-top: 16px; padding-top: 14px; }
+}
+/* Stacked on a mid-size screen: only the current step's words, so the
+   window still fits under them. */
+@media (min-width: 701px) and (max-width: 999px) and (max-aspect-ratio: 5/4) {
+  .scene.l-split.o-scene { --mw: min(1180px, 90vw, calc((100vh - 470px) * 1.875)); }
+  .o-steps li:not(.on) > p:last-child { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .o-steps li { color: #fff; }
@@ -2286,10 +2320,15 @@ em.dn { color: #d26a74; } em.up { color: #54a27e; } em.fl { color: rgba(255, 255
    beside it), trips lands like a tossed card (words above). The shots
    with a phone are 100 x 64 and trips (no phone) is 1200 x 640, so each
    size is worked out from that. */
-@media (min-width: 701px) {
-  .scene.l-zoom.o-feat { --mw: min(1000px, 80vw, calc((100vh - 330px) * 1.5625)); }
+@media (min-width: 701px) and (max-width: 999px) and (max-aspect-ratio: 5/4) {
+  .scene.l-iso.o-feat { --mw: min(1000px, 86vw, calc((100vh - 400px) * 1.5625)); }
+}
+@media (min-width: 1000px), (min-width: 701px) and (min-aspect-ratio: 5/4) {
   .scene.l-iso.o-feat { --mw: min(860px, 56vw, calc((100vh - 200px) * 1.5625)); }
   .l-iso.o-feat .scene-copy { flex-basis: 360px; }
+}
+@media (min-width: 701px) {
+  .scene.l-zoom.o-feat { --mw: min(1000px, 80vw, calc((100vh - 330px) * 1.5625)); }
   .scene.l-toss.o-feat { --mw: min(1100px, 84vw, calc((100vh - 400px) * 1.875)); }
   .l-toss.o-feat .scene-copy { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 0 clamp(24px, 4vw, 64px); align-items: end; }
   .l-toss.o-feat .scene-copy .kick { grid-column: 1 / -1; }

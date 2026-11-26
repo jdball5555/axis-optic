@@ -3,6 +3,18 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.7.2] — 2026-11-26
+
+### Fixed
+- The site no longer crashes on iPhones ("A problem repeatedly occurred"): the 3D intro's screens were each kept at full size in memory, several GB in all at a phone's pixel density, more than Safari allows a page. Each screen now takes only the detail it can show on that screen (reflections half that), and the intro is let go of once it's well out of view, so the page uses about a tenth of the memory it did
+
+### Changed
+- On phones and narrower screens the intro shows less of the banner side to side, so the logo is bigger, and the hero is shorter, with the Projects row right under it
+- Every app animation fits on screen at any size, with no running off the side: on phones each window takes the screen's width instead of half again more
+- Words sit beside the window only on wide or landscape screens; narrower ones stack the words above it, so neither gets squeezed (the live scoring window was shrinking to a sliver in between). Stacked, the Canvas to-dos steps show just the current step's words
+- The phone next to a window sits at the window's corner as on desktop, instead of covering the middle of it, and on a standard phone screen, where it would be too small to make out, it's left out and the window gets the whole width
+- On the narrowest phones Contact is just the envelope, so it doesn't run into the logo
+
 ## [1.7.1] — 2026-11-26
 
 ### Changed
