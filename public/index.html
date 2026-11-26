@@ -481,7 +481,7 @@
   <footer class="footer">
     <img src="assets/axis-mark.svg" alt="" class="footer-mark">
     <span>&copy; <span id="year">2026</span> Axis Optic</span>
-    <span class="footer-ver" title="Site version">v1.7.2</span>
+    <span class="footer-ver" title="Site version">v1.7.3</span>
   </footer>
 
   <script>
@@ -900,6 +900,10 @@ Promise.all(imgs.map(i=>(i.decode?i.decode():Promise.resolve()).catch(()=>{}))).
       // longer than its neighbors, so a row comes in one after another; a
       // negative one brings it in sooner.
       var lags = fades.map(function (el) { return parseFloat(el.getAttribute('data-sf-lag')) || 0; });
+      // The Projects row goes with its "Projects" label: if the label is
+      // already showing at the top of the page, so are the apps under it.
+      var projLabel = document.querySelector('.lineup > .kick.scroll-fade');
+      var inRow = fades.map(function (el) { return !!projLabel && el !== projLabel && el.matches('.lineup .app-ic'); });
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
       function smooth(x) { x = clamp(x, 0, 1); return x * x * (3 - 2 * x); }
@@ -924,6 +928,7 @@ Promise.all(imgs.map(i=>(i.decode?i.decode():Promise.resolve()).catch(()=>{}))).
 
         var scrollY = window.scrollY || window.pageYOffset || 0;
         var atBottom = (vh + scrollY) >= (document.documentElement.scrollHeight - 30);
+        var labelTop0 = projLabel ? projLabel.getBoundingClientRect().top + scrollY : 0;
         fades.forEach(function (el, i) {
           if (reduce) {
             el.style.setProperty('--sf-o', '1');
@@ -937,10 +942,10 @@ Promise.all(imgs.map(i=>(i.decode?i.decode():Promise.resolve()).catch(()=>{}))).
           // shown (on a tall screen, the whole Projects row), and anything
           // lower that's on screen (like "Projects" just under the hero on a
           // laptop) waits until you start scrolling, so nothing sits there
-          // half faded.
+          // half faded. The Projects row follows its label (see inRow).
           var start = vh * (0.92 - lags[i]), end = vh * (0.66 - lags[i]);
           var top0 = r.top + scrollY;
-          if (top0 <= vh * 0.66) { start = Math.max(start, top0 + 1); end = Math.max(end, top0); }
+          if ((inRow[i] ? labelTop0 : top0) <= vh * 0.66) { start = Math.max(start, top0 + 1); end = Math.max(end, top0); }
           else if (top0 < start) { start = top0; end = start - vh * 0.26; }
           var p = clamp((start - r.top) / (start - end), 0, 1);
           if (atBottom && r.top < vh) p = 1;

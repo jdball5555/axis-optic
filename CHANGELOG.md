@@ -3,6 +3,11 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.7.3] — 2026-11-26
+
+### Fixed
+- At the top of the page, the Projects row goes with its "Projects" label: if the label is already showing (on a tall or vertical screen), so are the apps under it, instead of the label sitting there alone until you scroll
+
 ## [1.7.2] — 2026-11-26
 
 ### Fixed
