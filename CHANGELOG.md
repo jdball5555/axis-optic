@@ -3,6 +3,12 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.7.1] — 2026-11-26
+
+### Changed
+- The Scorecards metrics scene shows split screen, the way the app does it: on an editing Spades scorecard, the tune button opens Customize Scorecard, the Split Screen Metrics switch turns it on, and Metrics opens beside the scorecard (weighted win rate, average score and more) while scoring carries on
+- Its words say to turn on Split Screen Metrics in a scorecard's settings to keep the standings beside it while you play
+
 ## [1.7.0] — 2026-11-26
 
 ### Added
