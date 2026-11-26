@@ -20,7 +20,8 @@ A single-page site that walks visitors through each project in a series of full-
 
 ## Features
 
-- **Animated logo intro.** The wordmark's horizontal line is generated in JavaScript so its tips always end just inside the screen edges, and it is rebuilt on resize.
+- **3D hero intro.** A camera flies along a wall of app screens, turns, and settles on the Axis Optic logo as its line, X and letters draw in, over "Data brought into focus". It's all CSS 3D transforms on a 1584 × 396 banner scaled to the screen, plays once, and pauses while the tab is in the background.
+- **Docking top bar.** The top bar isn't there at the top of the page. Scrolling down, the hero's logo shrinks into the middle of the bar, then the links and Contact fade in. The motion uses scroll-driven animations (a `ScrollTimeline`), so it stays in step with the scroll however fast you go, with a script fallback for browsers without them.
 - **App switcher.** The Projects section shows each app as its icon, side by side, with its name and status. Clicking one (or using the arrow keys, swiping, or the top-bar links) lights it up and shows only that app's page below. Each page sets its own accent colors and backdrop.
 - **Live version badges.** Each app's version is read from the `version.json` file its Flutter web build publishes, so the site always shows the current release without being edited. Each app's hosting has to allow `https://axisoptic.com` to read that file (an `Access-Control-Allow-Origin` header on `/version.json`).
 - **Scroll-pinned scenes with varied layouts.** Each section stays pinned while you scroll through it. Each scene enters differently: rising, swinging in from the side, pulling back from a zoom, flattening from a 3D tilt, landing like a tossed card, or pairing a desktop window with a phone. Scroll progress is mapped directly to CSS custom properties, so fast scrolling never skips a step.
@@ -42,6 +43,7 @@ public/
   index.html        page markup and scripts
   styles.css        all styles (each app's page has its own theme)
   assets/           logos, app icons, favicons
+  assets/hero/      the hero intro's app screens and backdrop
 docs/screenshots/   images used in this README
 firebase.json       hosting config (clean URLs, cache headers)
 deploy_website.command   one-click deploy script for macOS
@@ -72,7 +74,7 @@ This project was built with AI-assisted development. I designed the site and dir
 
 ## Status
 
-**Current version: 1.6.0.** See the [changelog](CHANGELOG.md) for version history.
+**Current version: 1.7.0** (also shown in the site's footer). See the [changelog](CHANGELOG.md) for version history.
 
 The site is live. Scorecards is live at [scorecards.axisoptic.com](https://scorecards.axisoptic.com), Optimizer is in development, and Axis Optic: Team is a concept.
 

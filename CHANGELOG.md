@@ -3,6 +3,22 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.7.0] — 2026-11-26
+
+### Added
+- A new 3D hero intro in place of the old logo animation: a camera flies along a wall of app screens, turns, and settles on the Axis Optic logo as it draws in, over "Data brought into focus"
+- The site's version in the footer, next to the copyright
+
+### Changed
+- The top bar isn't there at the top of the page: scrolling down, the hero's logo shrinks into the middle of the bar, then the links and Contact fade in (if you scroll while the intro is still playing, the bar's logo fades in instead)
+- The top bar has the logo in the middle, the app links on the left (hidden on narrower screens) and Contact on the right
+- The Contact buttons are white with black text
+- "Let's talk" stays dark, with a soft glow and a thin line along the bottom, instead of fading to white; the footer is dark too
+- At the top of the page, anything in the top two thirds of the screen shows right away (on a tall screen, the whole Projects row), and anything lower waits until you scroll, so "Projects" no longer peeks out half faded under the hero
+
+### Fixed
+- The intro pauses while the tab is in the background and carries on where it left off, instead of jumping ahead
+
 ## [1.6.0] — 2026-11-25
 
 ### Changed
