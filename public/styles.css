@@ -87,8 +87,10 @@ html:not(.js) .topbar .nav, html:not(.js) .topbar .nav-cta { visibility: visible
 /* ---------- Hero ----------
    A camera flies along a wall of app screens and settles on the logo (the
    script under the hero). Everything is laid out on a 1584 x 396 banner,
-   scaled to the hero's width and centered in it. */
-.hero { position: relative; height: max(25vw, min(64vh, 620px)); overflow: hidden; background: #000; }
+   zoomed to fill most of the hero's height and centered in it. The hero
+   takes most of the first screen (never much taller than half its width,
+   so tall portrait screens don't get a big empty box). */
+.hero { position: relative; height: max(25vw, min(86vh, 56vw)); overflow: hidden; background: #000; }
 @media (max-width: 700px) { .hero { height: 72vw; } }
 .hx-scaler { position: absolute; left: 0; top: 0; width: 1584px; height: 396px; transform-origin: 0 0; }
 .hx-stage { position: absolute; inset: 0; perspective: 1650px; perspective-origin: 792px 128px; overflow: visible; }

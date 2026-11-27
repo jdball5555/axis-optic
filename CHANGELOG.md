@@ -3,6 +3,12 @@
 All notable changes to this project are listed here, newest first.
 Versions follow [Semantic Versioning](https://semver.org): **major** for redesigns, **minor** for new features, **patch** for fixes.
 
+## [1.7.4] — 2026-11-27
+
+### Changed
+- The 3D intro is zoomed in and fills most of the first screen, instead of sitting in a short banner across the top: on a laptop the logo is about a third bigger, and more on larger screens. The sides of the scene are cropped as needed, but the whole logo always stays in view. Phones are unchanged
+- README: new hero screenshot
+
 ## [1.7.3] — 2026-11-26
 
 ### Fixed
